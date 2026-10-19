@@ -26,7 +26,15 @@ The assistant does not turn every typo into a clarification question. It keeps t
 
 ## Install
 
-Clone the repository, then copy the skill folder into an Agent Skills directory supported by your tool. The format follows the [Agent Skills standard](https://agentskills.io/specification).
+### One command (Codex, Cursor, and other supported agents)
+
+```sh
+npx skills add nezumi0627/type-miss
+```
+
+The CLI detects supported agents and guides installation. See the [CLI guide](https://www.skills.sh/docs/cli) for options. It collects anonymous install telemetry by default to rank skills; set `DISABLE_TELEMETRY=1` to opt out. The `type-miss` skill itself has no runtime network calls or telemetry.
+
+The skill uses the portable [Agent Skills format](https://agentskills.io/specification). To install manually, copy `skills/type-miss/` into an Agent Skills directory supported by your tool.
 
 ### Codex (Windows PowerShell)
 
@@ -123,10 +131,16 @@ These works motivate the model and task framing. `type-miss` is an instruction s
 
 ## Contributing
 
-Useful contributions include realistic Japanese IME and English typo examples, failure cases where context should *not* override literal text, and compact evaluation sets with intended prompts. Keep examples privacy-safe and include both the noisy input and the intended wording. Avoid claims such as “100% accurate”; intent recovery is inherently uncertain. Please describe the input, intended wording, and why the context resolves it in each proposed example.
+Useful contributions include realistic Japanese IME and English typo examples, failure cases where context should *not* override literal text, and compact evaluation sets with intended prompts. Keep examples privacy-safe and include both the noisy input and the intended wording. Avoid claims such as “100% accurate”; intent recovery is inherently uncertain. Please describe the input, intended wording, and why the context resolves it in each proposed example. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the contribution format.
+
+## License
+
+MIT. See [`LICENSE`](LICENSE).
+
+If `type-miss` saves you a clarification loop, consider [starring the repository](https://github.com/nezumi0627/type-miss). Stars help other people discover it.
 
 ## 日本語
 
 `type-miss` は、送信した日本語・英語の誤字や誤変換を会話の文脈から補い、AIが毎回「どういう意味？」と聞き返す手間を減らすためのskillです。
 
-入力方式ごとの誤りやすさと文脈上の自然さから候補を順位付けし、確信度と間違えた場合の影響に応じて、自然に補完する・短い前提を添えて進める・必要な場合だけ確認する、を選びます。詳細は [`skills/type-miss/SKILL.md`](skills/type-miss/SKILL.md) を参照してください。
+入力方式ごとの誤りやすさと文脈上の自然さから候補を順位付けし、確信度と間違えた場合の影響に応じて、自然に補完する・短い前提を添えて進める・必要な場合だけ確認する、を選びます。詳細は [`skills/type-miss/SKILL.md`](skills/type-miss/SKILL.md) を参照してください。ライセンスはMITです。

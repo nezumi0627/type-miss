@@ -1,0 +1,48 @@
+name: Report a typo-recovery case
+description: Share a privacy-safe example where an assistant should infer or preserve wording
+title: "[Case]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share only invented or public examples. Do not include private messages, names, credentials, or personal data.
+  - type: textarea
+    id: observed
+    attributes:
+      label: Text as entered
+      description: Include the typo or IME conversion.
+      placeholder: 子のUIの捜査官ヲよくして
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Minimal context
+      description: What surrounding topic is needed to interpret the text?
+    validations:
+      required: true
+  - type: input
+    id: intended
+    attributes:
+      label: Intended wording
+      placeholder: このUIの操作感をよくして
+    validations:
+      required: true
+  - type: dropdown
+    id: behavior
+    attributes:
+      label: Preferred assistant behavior
+      options:
+        - Correct and continue
+        - State a brief assumption and continue
+        - Ask one focused question
+        - Preserve the original wording
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why is this the right behavior?
+      description: Explain what evidence in the context supports this interpretation.
+    validations:
+      required: true
